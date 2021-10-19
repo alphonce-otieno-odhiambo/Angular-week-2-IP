@@ -1,9 +1,24 @@
 <h1 style="text-align: center;">HTTP REQUEST</h1>
 <div class="container border p-35 m-35 h-35">
     <div class="row">
-        <form (submit)="getGitHubApi()">
-            Name:<input type="text" class="" name="name">
+
+        <form (submit)="getUserProfile()">
+            Name:<input type="text" class="" name="name" [(ngModel)]="userName">
             <button class="btn  btn-outline-info" type="submit">GET API</button>
         </form>
     </div>
+</div>
+<div class="container">
+    <img [src]="user.avatar_url" alt="">
+    <p>{{user.login}}</p>
+    <p>Name:{{user.name}} </p>
+    <p>Bio:{{user.bio}} </p>
+    <p>following: {{user.following}} </p>
+    <p>followers:{{user.followers}} </p>
+
+</div>
+<div *ngFor="let repo of repositories" class="repos">
+    <h1>{{repo.name}} </h1>
+    <p>{{repo.description}} </p>
+    <p>{{repo.created_at}} </p>
 </div>
